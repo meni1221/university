@@ -1,14 +1,30 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
 import validator from "validator";
 
+export interface IGrades {
+  name:string,
+  grades:string,
+}
 export interface IUser extends Document {
   user_name: string;
   email: string;
   password: string;
   classId?: Types.ObjectId;
   is_Ateacher: boolean;
-  grades?: string[];
+  grades?: IGrades[];
 }
+
+const gradesSchema = new Schema<IGrades>({
+  name:{
+    type:String,
+    required:[true,"name is mandatory"]
+  },
+  grades:{
+    type:String,
+    required:[true,"grades is mandatory"]
+  }
+  
+})
 
 const UserSchema = new Schema<IUser>({
   user_name:{
@@ -25,15 +41,15 @@ const UserSchema = new Schema<IUser>({
   },
   classId:{
     type:Schema.Types.ObjectId,
-    required:[false,"classId is not mandatory"]
+
+    //ref Classroom Id
   },
   is_Ateacher:{
     type:Boolean,
     default:false
   },
   grades:{
-    type:String,
-    required:[false,"grades is not mandatory"]
+    type:[gradesSchema],
   }
 });
 
