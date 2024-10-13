@@ -3,7 +3,7 @@ import validator from "validator";
 
 export interface IGrades {
   name:string,
-  grades:string,
+  grade:string,
 }
 export interface IUser extends Document {
   user_name: string;
@@ -19,7 +19,7 @@ const gradesSchema = new Schema<IGrades>({
     type:String,
     required:[true,"name is mandatory"]
   },
-  grades:{
+  grade:{
     type:String,
     required:[true,"grades is mandatory"]
   }
