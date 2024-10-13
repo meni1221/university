@@ -5,11 +5,10 @@ export interface IUser extends Document {
   _id: Types.ObjectId;
   username: string;
   email: string;
-  profile: {
-    bio?: string;
-    socialLinks?: string[];
-  };
-  posts: Types.ObjectId[];
+  password: string;
+  classId: Types.ObjectId;
+  role: string;
+  grades?: string[];
 }
 
 const UserSchema = new Schema<IUser>({});
