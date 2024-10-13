@@ -1,10 +1,15 @@
 import { Request, Response } from "express";
-import User, { IUser } from "../models/userModel";
 
 export const createUser = async (req: Request, res: Response) => {};
 
-export const getUsers = async (req: Request, res: Response) => {};
+export const addGrad = async (req: Request, res: Response) => {};
 
-export const getUser = async (req: Request, res: Response) => {};
+export const getAllGrads = async (req: Request, res: Response) => {};
 
-// Optionally, add DELETE and EDIT functions
+export const updateGrad = async (req: Request, res: Response) => {};
+
+export const getAverageGrads = async (req: Request, res: Response) => {};
+
+export const getGrad = async (req: Request, res: Response) => {};
+
+
