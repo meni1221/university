@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import userModel from "../models/userModel";
 import userDTO from "../models/DTO/usersDTO";
 
-export const createUser = async (user: userDTO) => {
+export const CreateUser = async (user: userDTO) => {
   try {
     const { user_name, email, password,classroom } = user;
     const hashedPassword = await bcrypt.hash(password, 10);

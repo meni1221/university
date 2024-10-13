@@ -1,6 +1,16 @@
 import { Request, Response } from "express";
-
-export const createUser = async (req: Request, res: Response) => {};
+import userDTO from "../models/DTO/usersDTO";
+import {CreateUser} from "../services/userService"
+export const createUser = async (req: Request<any,any,userDTO>, res: Response) => {
+    try {
+        await CreateUser(req.body)
+        res.status(201).json({
+          msg:"user created"
+        })
+      } catch (err) {
+        res.status(400).json(err)
+      }
+};
 
 export const addGrad = async (req: Request, res: Response) => {};
 
