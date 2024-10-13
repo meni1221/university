@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import postRouter from "./routes/postRoutes";
+import authRouter from "./routes/authRouter";
 import userRouter from "./routes/userRoutes";
 import { errorHandler } from "./middleware/errorHandler";
 import connectDB from "./config/db";
@@ -16,7 +16,7 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.use("/api/posts", postRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 
 
